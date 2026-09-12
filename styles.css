@@ -10,7 +10,7 @@
   --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
 }
 
-/* Fuente base para párrafos, listas, botones y elementos generales */
+/* Reset general */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -28,17 +28,14 @@ h1, h2, h3, .subtitle, .logo-sidebar span {
   letter-spacing: 1px;
 }
 
-
-
 html, body {
-  height: 100vh;
-  width: 100vw;
-  overflow: hidden; /* Evita cualquier tipo de scroll en la pantalla */
+  min-height: 100vh;
+  width: 100%;
+  overflow-x: hidden; /* Evita scroll horizontal pero permite vertical si se necesita */
 }
 
-/* Background fijo centrado y adaptado a pantalla sin distorsión */
+/* Background fijo centrado */
 body {
-  /* URL con resolución Ultra HD nativa (sin restricción w=1169) */
   background-image: 
     linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1)),
     url('https://images.unsplash.com/photo-1583524505974-6facd53f4597?q=80&w=2560&auto=format&fit=crop');
@@ -48,10 +45,7 @@ body {
   background-attachment: fixed;
   background-size: cover;
   
-  /* Renderizado optimizado para nitidez */
   image-rendering: -webkit-optimize-contrast;
-  image-rendering: crisp-edges;
-  
   color: var(--text-dark);
 }
 
@@ -164,16 +158,16 @@ body {
 
 /* Contenedor Principal */
 .content {
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  min-height: 100vh;
 }
 
 /* Manejo de visibilidad de Secciones (Modo Oculto por Defecto) */
 .page-section {
   display: none;
   width: 100%;
-  height: 100%;
-  padding-left: 220px; /* Desplazamiento para no tapar con el sidebar flotante */
+  min-height: 100vh;
+  padding-left: 200px;
   justify-content: center;
   align-items: center;
 }
@@ -199,7 +193,7 @@ body {
 }
 
 .brand-center h1 {
-  font-size: 3.5rem;
+  font-size: 4.2rem;
   font-weight: 800;
   color: var(--text-dark);
   letter-spacing: 2px;
@@ -225,12 +219,12 @@ body {
 
 /* Pantalla completa para secciones con diseño dividido */
 .page-section.split-layout {
-  padding-left: 0; /* Quita el margen interno para pegar los lados a los bordes */
-  width: 100vw;
-  height: 100vh;
+  padding-left: 0;
+  width: 100%;
+  min-height: 100vh;
   display: none;
-  grid-template-columns: 1fr 1fr; /* 50% izquierda, 50% derecha */
-  background-color: #FFFFFF; /* Oculta la imagen de fondo de la página */
+  grid-template-columns: 1fr 1fr;
+  background-color: #FFFFFF;
 }
 
 .page-section.split-layout.active {
@@ -239,25 +233,26 @@ body {
 
 /* Columna Izquierda: Información (Fondo sólido) */
 .split-info {
-  background-color: #F8FAF9; /* Color sólido pastel claro */
-  padding: 60px 80px 60px 240px; /* Offset de 240px a la izquierda para no tapar con el Nav Flotante */
+  background-color: #F8FAF9;
+  padding: 40px 60px 40px 220px;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 20px;
-  height: 100%;
+  gap: 16px;
+  height: 100vh;
+  overflow-y: auto; /* Permite scroll solo en el texto si la pantalla es pequeña */
 }
 
 .split-info h2 {
-  font-size: 2.2rem;
+  font-size: 2.4rem;
   color: var(--text-dark);
 }
 
 .split-info .subtitle {
   color: #0F5257;
   font-weight: 600;
-  font-size: 1rem;
-  margin-top: 5px;
+  font-size: 1.2rem;
+  margin-top: 2px;
 }
 
 .split-info p {
@@ -267,16 +262,16 @@ body {
 }
 
 .split-info h3 {
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   color: var(--text-dark);
-  margin-top: 10px;
+  margin-top: 8px;
 }
 
 .vet-checklist {
   list-style: none;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 10px;
 }
 
 .vet-checklist li {
@@ -300,7 +295,8 @@ body {
 .split-image {
   width: 100%;
   height: 100vh;
-  margin: 0;
+  position: sticky;
+  top: 0;
   overflow: hidden;
 }
 
@@ -328,7 +324,7 @@ body {
 p, li, button {
   font-family: "Noto Serif", serif;
   font-weight: 400;
-  line-height: 1.7;
+  line-height: 1.6;
 }
 
 /* Fondo en Alta Definición para la sección Adopción */

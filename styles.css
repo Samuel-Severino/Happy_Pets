@@ -351,3 +351,118 @@ p, li, button {
   justify-content: center;
   align-items: center;
 }
+
+/* ==========================================================================
+   RESPONSIVE DESIGN (Media Queries)
+   ========================================================================== */
+
+/* Tablets y Dispositivos Medianos (máximo 1024px) */
+@media screen and (max-width: 1024px) {
+  .page-section {
+    padding-left: 180px;
+  }
+
+  .split-info {
+    padding: 30px 40px 30px 200px;
+  }
+
+  .split-info h2 {
+    font-size: 2.2rem;
+  }
+
+  .split-info .subtitle {
+    font-size: 1.1rem;
+  }
+}
+
+/* Móviles y Pantallas Pequeñas (máximo 768px) */
+@media screen and (max-width: 768px) {
+  
+  /* Mover Sidebar flotante a la parte inferior horizontal */
+  .sidebar-container {
+    top: auto;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    flex-direction: row;
+    padding: 8px 16px;
+    border-radius: 30px;
+    width: 92%;
+    max-width: 420px;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  /* Ocultar el logo en el menú inferior para ahorrar espacio */
+  .logo-sidebar {
+    display: none;
+  }
+
+  .input {
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-around;
+    gap: 4px;
+  }
+
+  .value {
+    padding: 8px 10px;
+    font-size: 0.8rem;
+    flex-direction: column;
+    gap: 4px;
+    text-align: center;
+  }
+
+  .value svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .value::before {
+    display: none; /* Quita el indicador lateral en modo barra inferior */
+  }
+
+  /* Resetear paddings generales por la nueva posición del menú */
+  .page-section {
+    padding-left: 0;
+    padding-bottom: 90px; /* Espacio extra para no tapar contenido con el menú inferior */
+  }
+
+  /* Cambiar layout dividido de 2 columnas a 1 columna vertical */
+  .page-section.split-layout {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+
+  .split-info {
+    padding: 40px 24px 30px 24px;
+    height: auto;
+    overflow-y: visible;
+  }
+
+  .split-info h2 {
+    font-size: 2rem;
+  }
+
+  .split-info .subtitle {
+    font-size: 1rem;
+  }
+
+  .split-info h3 {
+    font-size: 1.3rem;
+  }
+
+  .split-image {
+    height: 350px;
+    position: relative;
+  }
+
+  .brand-center h1 {
+    font-size: 3rem;
+  }
+
+  .glass-card {
+    width: 90%;
+    padding: 24px;
+  }
+}
